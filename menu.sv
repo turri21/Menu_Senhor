@@ -108,7 +108,7 @@ module emu
 	output  [1:0] AUDIO_MIX, // 0 - no mix, 1 - 25%, 2 - 50%, 3 - 100% (mono)
 
 	//ADC
-	inout   [3:0] ADC_BUS,
+	//inout   [3:0] ADC_BUS,
 
 	//SD-SPI
 	output        SD_SCK,
@@ -132,7 +132,7 @@ module emu
 
 	//SDRAM interface with lower latency
 	output        SDRAM_CLK,
-	output        SDRAM_CKE,
+	//output        SDRAM_CKE,
 	output [12:0] SDRAM_A,
 	output  [1:0] SDRAM_BA,
 	inout  [15:0] SDRAM_DQ,
@@ -175,7 +175,7 @@ module emu
 	input         OSD_STATUS
 );
 
-assign ADC_BUS  = 'Z;
+//assign ADC_BUS  = 'Z;
 assign {UART_RTS, UART_DTR} = 0;
 assign {SD_SCK, SD_MOSI, SD_CS} = 'Z;
 
