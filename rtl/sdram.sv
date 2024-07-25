@@ -42,7 +42,7 @@ module sdram
    output            SDRAM_nRAS,  // row address select
    output            SDRAM_nCAS,  // columns address select
    output            SDRAM_CLK,
-   output            SDRAM_CKE,   // clock enable
+   //output            SDRAM_CKE,   // clock enable
                                   //
    input       [1:0] wtbt,        // 16bit mode:  bit1 - write high byte, bit0 - write low byte,
                                   // 8bit mode:  2'b00 - use addr[0] to decide which byte to write
