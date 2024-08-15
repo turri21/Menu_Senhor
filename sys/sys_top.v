@@ -54,7 +54,7 @@ module sys_top
 	output        SDRAM_nCS,
 	output  [1:0] SDRAM_BA,
 	output        SDRAM_CLK,
-//	output        SDRAM_CKE, //Senhor: If disabled there will be Vertical line artifacts on screen's background effects. 
+	output        SDRAM_CKE, //Senhor: If disabled there will be Vertical line artifacts on screen's background effects. 
 	                         //These effects can be changed by pressing the F1 key.
 
 `ifdef MISTER_DUAL_SDRAM
@@ -75,7 +75,7 @@ module sys_top
 	//output  [5:0] VGA_B,
 	//inout         VGA_HS,
 	//output		  VGA_VS,
-	input         VGA_EN,  // active low
+	//input         VGA_EN,  // active low
 
 	/////////// AUDIO //////////
 	//output		  AUDIO_L,
@@ -125,25 +125,17 @@ module sys_top
 	//inout   [6:0] USER_IO
 );
 
-//////////////////////  Secondary SD  ///////////////////////////////////
-//wire SD_CS, SD_CLK, SD_MOSI, SD_MISO, SD_CD;
+//////////////////////// Senhor: Initializations ////////////////////////
 
-`ifndef MISTER_DUAL_SDRAM
-	assign SD_CD       = mcp_en ? mcp_sdcd : SDCD_SPDIF;
-//	assign SD_MISO     = SD_CD | (mcp_en ? SD_SPI_MISO : (VGA_EN | SDIO_DAT[0]));
-	assign SD_SPI_CS   = mcp_en ?  (mcp_sdcd  ? 1'bZ : SD_CS) : (sog & ~cs1 & ~VGA_EN) ? 1'b1 : 1'bZ;
-	assign SD_SPI_CLK  = (~mcp_en | mcp_sdcd) ? 1'bZ : SD_CLK;
-	assign SD_SPI_MOSI = (~mcp_en | mcp_sdcd) ? 1'bZ : SD_MOSI;
-	assign {SDIO_CLK,SDIO_CMD,SDIO_DAT} = av_dis ? 6'bZZZZZZ : (mcp_en | (SDCD_SPDIF & ~SW[2])) ? {vga_g,vga_r,vga_b} : {SD_CLK,SD_MOSI,SD_CS,3'bZZZ};
-`else
-	assign SD_CD       = mcp_sdcd;
-	assign SD_MISO     = mcp_sdcd | SD_SPI_MISO;
-	assign SD_SPI_CS   = mcp_sdcd ? 1'bZ : SD_CS;
-	assign SD_SPI_CLK  = mcp_sdcd ? 1'bZ : SD_CLK;
-	assign SD_SPI_MOSI = mcp_sdcd ? 1'bZ : SD_MOSI;
-`endif
+wire [5:0] VGA_R;
+wire [5:0] VGA_G;
+wire [5:0] VGA_B;
+wire VGA_HS;
+wire VGA_VS = 1'b1;
+wire VGA_EN = 1'b1;
 
-//////////////////////  LEDs/Buttons  ///////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
+
 
 reg [7:0] led_overtake = 0;
 reg [7:0] led_state    = 0;
@@ -324,7 +316,7 @@ wire[12:0] ARX, ARY;
 reg [11:0] VSET = 0, HSET = 0;
 reg        FREESCALE = 0;
 reg  [2:0] scaler_flt;
-reg        lowlat = 0;
+reg        lowlat = 1;
 reg        cfg_done = 0;
 
 reg        vs_wait = 0;
@@ -1520,7 +1512,7 @@ assign SDCD_SPDIF = (mcp_en & ~spdif) ? 1'b0 : 1'bZ;
 	assign AUDIO_L     = av_dis ? 1'bZ : (SW[0] | mcp_en) ? HDMI_SCLK  : analog_l;
 `endif
 
-assign HDMI_MCLK = clk_audio;
+assign HDMI_MCLK = 1'b0;
 wire clk_audio;
 
 pll_audio pll_audio

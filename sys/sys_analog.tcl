@@ -16,24 +16,24 @@
 #============================================================
 # VGA
 #============================================================
-set_location_assignment PIN_AE17 -to VGA_R[0]
-set_location_assignment PIN_AE20 -to VGA_R[1]
-set_location_assignment PIN_AF20 -to VGA_R[2]
-set_location_assignment PIN_AH18 -to VGA_R[3]
+#set_location_assignment PIN_AE17 -to VGA_R[0]
+#set_location_assignment PIN_AE20 -to VGA_R[1]
+#set_location_assignment PIN_AF20 -to VGA_R[2]
+#set_location_assignment PIN_AH18 -to VGA_R[3]
 #set_location_assignment PIN_AH19 -to VGA_R[4]
-set_location_assignment PIN_AF21 -to VGA_R[5]
+#set_location_assignment PIN_AF21 -to VGA_R[5]
 
-set_location_assignment PIN_AE19 -to VGA_G[0]
-set_location_assignment PIN_AG15 -to VGA_G[1]
-set_location_assignment PIN_AF18 -to VGA_G[2]
+#set_location_assignment PIN_AE19 -to VGA_G[0]
+#set_location_assignment PIN_AG15 -to VGA_G[1]
+#set_location_assignment PIN_AF18 -to VGA_G[2]
 #set_location_assignment PIN_AG18 -to VGA_G[3]
 #set_location_assignment PIN_AG19 -to VGA_G[4]
 #set_location_assignment PIN_AG20 -to VGA_G[5]
 
 #set_location_assignment PIN_AG21 -to VGA_B[0]
-set_location_assignment PIN_AA20 -to VGA_B[1]
-set_location_assignment PIN_AE22 -to VGA_B[2]
-set_location_assignment PIN_AF22 -to VGA_B[3]
+#set_location_assignment PIN_AA20 -to VGA_B[1]
+#set_location_assignment PIN_AE22 -to VGA_B[2]
+#set_location_assignment PIN_AF22 -to VGA_B[3]
 #set_location_assignment PIN_AH23 -to VGA_B[4]
 #set_location_assignment PIN_AH21 -to VGA_B[5]
 
@@ -41,10 +41,10 @@ set_location_assignment PIN_AF22 -to VGA_B[3]
 #set_location_assignment PIN_AG24 -to VGA_VS
 
 #set_location_assignment PIN_AH27 -to VGA_EN
-set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to VGA_EN
+#set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to VGA_EN
 
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_*
-set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_*
+#set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_*
+#set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_*
 
 #============================================================
 # AUDIO
