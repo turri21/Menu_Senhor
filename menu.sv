@@ -111,11 +111,11 @@ module emu
 	//inout   [3:0] ADC_BUS,
 
 	//SD-SPI
-	output        SD_SCK,
-	output        SD_MOSI,
-	input         SD_MISO,
-	output        SD_CS,
-	input         SD_CD,
+	//output        SD_SCK,
+	//output        SD_MOSI,
+	//input         SD_MISO,
+	//output        SD_CS,
+	//input         SD_CD,
 
 	//High latency DDR3 RAM interface
 	//Use for non-critical time purposes
@@ -136,8 +136,8 @@ module emu
 	output [12:0] SDRAM_A,
 	output  [1:0] SDRAM_BA,
 	inout  [15:0] SDRAM_DQ,
-	output        SDRAM_DQML,
-	output        SDRAM_DQMH,
+	//output        SDRAM_DQML,
+	//output        SDRAM_DQMH,
 	output        SDRAM_nCS,
 	output        SDRAM_nCAS,
 	output        SDRAM_nRAS,
@@ -177,7 +177,7 @@ module emu
 
 //assign ADC_BUS  = 'Z;
 assign {UART_RTS, UART_DTR} = 0;
-assign {SD_SCK, SD_MOSI, SD_CS} = 'Z;
+//assign {SD_SCK, SD_MOSI, SD_CS} = 'Z;
 
 assign DDRAM_CLK = clk_sys;
 assign CE_PIXEL  = ce_pix;
