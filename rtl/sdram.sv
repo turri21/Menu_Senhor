@@ -34,8 +34,8 @@ module sdram
                                   // SDRAM_* - signals to the MT48LC16M16 chip
    inout  reg [15:0] SDRAM_DQ,    // 16 bit bidirectional data bus
    output reg [12:0] SDRAM_A,     // 13 bit multiplexed address bus
-   output reg        SDRAM_DQML,  // two byte masks
-   output reg        SDRAM_DQMH,  // 
+   //output reg        SDRAM_DQML,  // two byte masks
+   //output reg        SDRAM_DQMH,  // 
    output reg  [1:0] SDRAM_BA,    // two banks
    output            SDRAM_nCS,   // a single chip select
    output            SDRAM_nWE,   // write enable
