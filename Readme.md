@@ -1,3 +1,8 @@
+=(menu_Senhor notes)=-
+
+Tested: Working Video 720p, 1080p.
+
+___
 # Startup core for MiSTer
 
 * **ESC** - Back/Options
