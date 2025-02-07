@@ -2,6 +2,7 @@
 
 Tested: Working Video 720p, 1080p.
 
+Dev notes: Clocks swapped in sys.tcl
 ___
 # Startup core for MiSTer
 
